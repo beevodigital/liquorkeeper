@@ -27,7 +27,12 @@ namespace LiquorKeeper.Migrations
             var GetUser = context.Users.Where(x => x.UserName.Equals("EvansLiquor")).FirstOrDefault();
 
             //now lets add a store for them
+            //stripped down currently
             context.Stores.AddOrUpdate(new Store { Name = "Evans Liquor Store", City = "Ham Lake", User = GetUser });
+
+            //TODO: Add in products - we should have a method call for this, so that is can he dropped and added easily
+
+            //TODD: Add products to the test store
 
             base.Seed(context);
         }

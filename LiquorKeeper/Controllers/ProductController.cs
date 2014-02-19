@@ -8,129 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using LiquorKeeper.Models;
 
-using System.Security.Claims;
-using System.Threading.Tasks;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using Microsoft.Owin.Security;
-
 namespace LiquorKeeper.Controllers
 {
-    public class StoreController : Controller
+    public class ProductController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
 
-        // GET: /Store/
+        // GET: /Product/
         public ActionResult Index()
         {
-            //only show stores for the logged in user
-            var ThisUserId = User.Identity.GetUserId();
-            var ThisUser = db.Users.Where(x => x.Id.Equals(ThisUserId)).FirstOrDefault();
-
-            var GetStores = db.Stores.Where(x => x.User.Id.Equals(ThisUser.Id)).ToList();
-
-            return View(GetStores);
+            return View(db.Products.ToList());
         }
 
-        // GET: /Store/Details/5
-        public ActionResult Details(Guid? id)
+        // GET: /Product/Details/5
+        public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Store store = db.Stores.Find(id);
-
-            //look up store inventory
-            //var GetProducts = db.StoreProducts.Where(x => x.Store.ID.Equals(id)).ToList();
-
-            if (store == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(store);
+            return View(product);
         }
 
-        // GET: /Store/Create
+        // GET: /Product/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: /Store/Create
+        // POST: /Product/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include="ID,Name,IsPrimary,Address,City,State,Zip,PrimaryPhone,Hours")] Store store)
+        public ActionResult Create([Bind(Include="ID,Name,Description")] Product product)
         {
             if (ModelState.IsValid)
             {
-                var ThisUserId = User.Identity.GetUserId();
-                var ThisUser = db.Users.Where(x => x.Id.Equals(ThisUserId)).FirstOrDefault();
-                store.ID = Guid.NewGuid();
-                store.User = ThisUser;
-                db.Stores.Add(store);
+                db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(store);
+            return View(product);
         }
 
-        // GET: /Store/Edit/5
-        public ActionResult Edit(Guid? id)
+        // GET: /Product/Edit/5
+        public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Store store = db.Stores.Find(id);
-            if (store == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(store);
+            return View(product);
         }
 
-        // POST: /Store/Edit/5
+        // POST: /Product/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include="ID,Name,IsPrimary,Address,City,State,Zip,PrimaryPhone,Hours")] Store store)
+        public ActionResult Edit([Bind(Include="ID,Name,Description")] Product product)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(store).State = EntityState.Modified;
+                db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(store);
+            return View(product);
         }
 
-        // GET: /Store/Delete/5
-        public ActionResult Delete(Guid? id)
+        // GET: /Product/Delete/5
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Store store = db.Stores.Find(id);
-            if (store == null)
+            Product product = db.Products.Find(id);
+            if (product == null)
             {
                 return HttpNotFound();
             }
-            return View(store);
+            return View(product);
         }
 
-        // POST: /Store/Delete/5
+        // POST: /Product/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult DeleteConfirmed(Guid id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            Store store = db.Stores.Find(id);
-            db.Stores.Remove(store);
+            Product product = db.Products.Find(id);
+            db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

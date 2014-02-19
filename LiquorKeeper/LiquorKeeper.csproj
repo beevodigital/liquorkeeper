@@ -182,6 +182,22 @@
     <Compile Include="Migrations\201401290224275_Added back in stores.Designer.cs">
       <DependentUpon>201401290224275_Added back in stores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201402190228320_up to date.cs" />
+    <Compile Include="Migrations\201402190228320_up to date.Designer.cs">
+      <DependentUpon>201402190228320_up to date.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402190234594_removed models.cs" />
+    <Compile Include="Migrations\201402190234594_removed models.Designer.cs">
+      <DependentUpon>201402190234594_removed models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402190237510_added back in models.cs" />
+    <Compile Include="Migrations\201402190237510_added back in models.Designer.cs">
+      <DependentUpon>201402190237510_added back in models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201402190243294_help.cs" />
+    <Compile Include="Migrations\201402190243294_help.Designer.cs">
+      <DependentUpon>201402190243294_help.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -276,6 +292,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201401290224275_Added back in stores.resx">
       <DependentUpon>201401290224275_Added back in stores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402190228320_up to date.resx">
+      <DependentUpon>201402190228320_up to date.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402190234594_removed models.resx">
+      <DependentUpon>201402190234594_removed models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402190237510_added back in models.resx">
+      <DependentUpon>201402190237510_added back in models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201402190243294_help.resx">
+      <DependentUpon>201402190243294_help.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -58,3 +58,7 @@ C:\projects\LiquorKeeper\LiquorKeeper\obj\Debug\LiquorKeeper.csproj.GenerateReso
 C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.revert.resources
 c:\projects\LiquorKeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.RemovedStores.resources
 c:\projects\LiquorKeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.Addedbackinstores.resources
+C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.uptodate.resources
+C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.removedmodels.resources
+C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.addedbackinmodels.resources
+C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.help.resources

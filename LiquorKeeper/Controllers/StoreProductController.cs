@@ -38,6 +38,7 @@ namespace LiquorKeeper.Controllers
         // GET: /StoreProduct/Create
         public ActionResult Create()
         {
+            ViewBag.Products = db.Products.ToList();
             return View();
         }
 
@@ -50,6 +51,11 @@ namespace LiquorKeeper.Controllers
         {
             if (ModelState.IsValid)
             {
+                //we need to look up both store ID (and make sure it belongs to the signed in user) and the product id
+                Guid ThisProductID = Guid.Parse(Request.Form["ProductID"].ToString());
+                var GetProduct = db.Products.Where(x => x.ID.Equals(ThisProductID)).FirstOrDefault();
+
+                storeproduct.Product = GetProduct;
                 storeproduct.ID = Guid.NewGuid();
                 db.StoreProducts.Add(storeproduct);
                 db.SaveChanges();

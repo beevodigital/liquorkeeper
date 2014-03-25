@@ -8,6 +8,12 @@ using System.Web;
 using System.Web.Mvc;
 using LiquorKeeper.Models;
 
+using System.Security.Claims;
+using System.Threading.Tasks;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
+
 namespace LiquorKeeper.Controllers
 {
     public class StoreProductController : Controller
@@ -51,9 +57,22 @@ namespace LiquorKeeper.Controllers
         {
             if (ModelState.IsValid)
             {
+                //TODO
                 //we need to look up both store ID (and make sure it belongs to the signed in user) and the product id
                 Guid ThisProductID = Guid.Parse(Request.Form["ProductID"].ToString());
                 var GetProduct = db.Products.Where(x => x.ID.Equals(ThisProductID)).FirstOrDefault();
+
+                //look up the store and user
+                var ThisUserId = User.Identity.GetUserId();
+                var ThisUser = db.Users.Where(x => x.Id.Equals(ThisUserId)).FirstOrDefault();
+
+                var GetStore = db.Stores.Where(x => x.User.Id.Equals(ThisUser.Id)).Where(x => x.ID.Equals("")).FirstOrDefault();
+
+                //if anything is empty, bail. We CAN NOT have people editing each others stores
+                if (GetStore == null || GetProduct == null)
+                {
+                    return Content("Permission Denied");
+                }
 
                 storeproduct.Product = GetProduct;
                 storeproduct.ID = Guid.NewGuid();

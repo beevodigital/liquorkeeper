@@ -18,12 +18,20 @@ namespace LiquorKeeper.Controllers
 {
     public class StoreProductController : Controller
     {
+        //TODO: Create authentication attributes so we can take care of user and store authentication easier
+
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: /StoreProduct/
         public ActionResult Index()
         {
-            return View(db.StoreProducts.ToList());
+            //we should only show products for the store they are interested in
+            if (!LiquorKeeper.Library.Security.security.IsValidStore(User.Identity.GetUserId(), Guid.Parse(Request.QueryString["s"])))
+                return Content("Permission Denied");
+
+            Guid StoreID = Guid.Parse(Request.QueryString["s"]);
+
+            return View(db.StoreProducts.Include(x => x.Product).Where(x => x.Store.ID.Equals(StoreID)).ToList());
         }
 
         // GET: /StoreProduct/Details/5
@@ -44,6 +52,7 @@ namespace LiquorKeeper.Controllers
         // GET: /StoreProduct/Create
         public ActionResult Create()
         {
+            
             ViewBag.Products = db.Products.ToList();
             return View();
         }
@@ -57,6 +66,11 @@ namespace LiquorKeeper.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!LiquorKeeper.Library.Security.security.IsValidStore(User.Identity.GetUserId(), Guid.Parse(Request.Form["s"])))
+                    return Content("Permission Denied");
+
+                Guid StoreID = Guid.Parse(Request.Form["s"]);
+
                 //TODO
                 //we need to look up both store ID (and make sure it belongs to the signed in user) and the product id
                 Guid ThisProductID = Guid.Parse(Request.Form["ProductID"].ToString());
@@ -66,7 +80,7 @@ namespace LiquorKeeper.Controllers
                 var ThisUserId = User.Identity.GetUserId();
                 var ThisUser = db.Users.Where(x => x.Id.Equals(ThisUserId)).FirstOrDefault();
 
-                var GetStore = db.Stores.Where(x => x.User.Id.Equals(ThisUser.Id)).Where(x => x.ID.Equals("")).FirstOrDefault();
+                var GetStore = db.Stores.Where(x => x.User.Id.Equals(ThisUser.Id)).Where(x => x.ID.Equals(StoreID)).FirstOrDefault();
 
                 //if anything is empty, bail. We CAN NOT have people editing each others stores
                 if (GetStore == null || GetProduct == null)
@@ -76,9 +90,10 @@ namespace LiquorKeeper.Controllers
 
                 storeproduct.Product = GetProduct;
                 storeproduct.ID = Guid.NewGuid();
+                storeproduct.Store = GetStore;
                 db.StoreProducts.Add(storeproduct);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", new { s = StoreID});
             }
 
             return View(storeproduct);

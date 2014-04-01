@@ -306,6 +306,12 @@
       <DependentUpon>201402190243294_help.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LiquorKeep.Library\LiquorKeep.Library.csproj">
+      <Project>{4af91008-2840-4d81-83ff-147b87a9637a}</Project>
+      <Name>LiquorKeep.Library</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

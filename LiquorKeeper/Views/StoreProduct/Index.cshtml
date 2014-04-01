@@ -7,10 +7,13 @@
 <h2>Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink("Create New", "Create", new {s = Request.QueryString["s"] })
 </p>
 <table class="table">
     <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Product.Name)
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Price)
         </th>
@@ -19,6 +22,9 @@
 
 @foreach (var item in Model) {
     <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Product.Name)
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Price)
         </td>

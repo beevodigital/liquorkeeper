@@ -1,0 +1,4 @@
+C:\projects\liquorkeeper\LiquorKeep.Library\bin\Debug\LiquorKeeper.Library.dll
+C:\projects\liquorkeeper\LiquorKeep.Library\bin\Debug\LiquorKeeper.Library.pdb
+C:\projects\liquorkeeper\LiquorKeep.Library\obj\Debug\LiquorKeeper.Library.dll
+C:\projects\liquorkeeper\LiquorKeep.Library\obj\Debug\LiquorKeeper.Library.pdb

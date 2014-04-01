@@ -62,3 +62,5 @@ C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.uptodate
 C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.removedmodels.resources
 C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.addedbackinmodels.resources
 C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.help.resources
+C:\projects\liquorkeeper\LiquorKeeper\bin\LiquorKeeper.Library.dll
+C:\projects\liquorkeeper\LiquorKeeper\bin\LiquorKeeper.Library.pdb

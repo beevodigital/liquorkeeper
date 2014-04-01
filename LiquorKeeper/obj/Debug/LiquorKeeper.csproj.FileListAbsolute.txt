@@ -64,3 +64,4 @@ C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.addedbac
 C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.help.resources
 C:\projects\liquorkeeper\LiquorKeeper\bin\LiquorKeeper.Library.dll
 C:\projects\liquorkeeper\LiquorKeeper\bin\LiquorKeeper.Library.pdb
+C:\projects\liquorkeeper\LiquorKeeper\obj\Debug\LiquorKeeper.Migrations.InitialPromotion.resources

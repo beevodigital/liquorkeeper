@@ -18,6 +18,7 @@ namespace LiquorKeeper.Models
         public DbSet<Store> Stores { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<StoreProduct> StoreProducts { get; set; }
+        public DbSet<StorePromotion> StorePromotions { get; set; }
 
     }
 }

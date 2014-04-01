@@ -32,9 +32,6 @@
         <th>
             @Html.DisplayNameFor(model => model.PrimaryPhone)
         </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Hours)
-        </th>
         <th></th>
     </tr>
 
@@ -62,12 +59,8 @@
             @Html.DisplayFor(modelItem => item.PrimaryPhone)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Hours)
-        </td>
-        <td>
             @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
             @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id = item.ID }) |
             @Html.ActionLink("Manage Inventory", "Index", "StoreProduct", new { s = item.ID }, "")
         </td>
     </tr>

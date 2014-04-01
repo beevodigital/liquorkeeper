@@ -163,6 +163,7 @@
     <Compile Include="Controllers\ProductController.cs" />
     <Compile Include="Controllers\StoreController.cs" />
     <Compile Include="Controllers\StoreProductController.cs" />
+    <Compile Include="Controllers\StorePromotionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -198,12 +199,17 @@
     <Compile Include="Migrations\201402190243294_help.Designer.cs">
       <DependentUpon>201402190243294_help.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201404012333075_Initial Promotion.cs" />
+    <Compile Include="Migrations\201404012333075_Initial Promotion.Designer.cs">
+      <DependentUpon>201404012333075_Initial Promotion.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\Store.cs" />
     <Compile Include="Models\StoreProduct.cs" />
+    <Compile Include="Models\StorePromotion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -268,6 +274,11 @@
     <Content Include="Views\StoreProduct\Details.cshtml" />
     <Content Include="Views\StoreProduct\Edit.cshtml" />
     <Content Include="Views\StoreProduct\Index.cshtml" />
+    <Content Include="Views\StorePromotions\Create.cshtml" />
+    <Content Include="Views\StorePromotions\Delete.cshtml" />
+    <Content Include="Views\StorePromotions\Details.cshtml" />
+    <Content Include="Views\StorePromotions\Edit.cshtml" />
+    <Content Include="Views\StorePromotions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -304,6 +315,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201402190243294_help.resx">
       <DependentUpon>201402190243294_help.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201404012333075_Initial Promotion.resx">
+      <DependentUpon>201404012333075_Initial Promotion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

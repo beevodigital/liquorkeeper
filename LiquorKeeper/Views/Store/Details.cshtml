@@ -4,86 +4,102 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>Store Name</h2>
 
-<div>
-    <h4>Inventory</h4>
-    <ul>
-        
-    </ul>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Info</h2>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.IsPrimary)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.IsPrimary)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Address)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.City)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.City)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.State)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.State)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Zip)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Zip)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.PrimaryPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.PrimaryPhone)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Hours)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Hours)
+            </dd>
+
+        </dl>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Edit &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Promotions</h2>
+        <p>You currently have 0 promotions running for this store, and 0 scheduled</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+    </div>
+    <div class="col-md-4">
+        <h2>Inventory</h2>
+        <p>You currently have 0 active items in your inventory</p>
+        <p>
+            @Html.ActionLink("Manage Inventory", "Index", "StoreProduct", new { s = Model.ID }, new { @class = "btn btn-default" })
+        </p>
+    </div>
 </div>
 
-<div>
-    <h4>Store</h4>
-	<hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IsPrimary)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IsPrimary)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.City)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.City)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.State)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.State)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Zip)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Zip)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.PrimaryPhone)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.PrimaryPhone)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Hours)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Hours)
-        </dd>
-
-    </dl>
+<div class="row">
+    <div class="col-md-4">
+        <h2>Store Theme</h2>
+        <p>Manage your store colors and images</p>
+        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Manage &raquo;</a></p>
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+        <p>
+            @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+            @Html.ActionLink("Back to List", "Index")
+        </p>

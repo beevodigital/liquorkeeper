@@ -1,0 +1,5 @@
+    
+V1.1 (11-17-2013)
+* Updated to Bootstrap 3.0.2
+* Updated to Font Awesome 4.0.3
+

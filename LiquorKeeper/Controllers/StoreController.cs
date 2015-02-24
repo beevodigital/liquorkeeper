@@ -104,7 +104,7 @@ namespace LiquorKeeper.Controllers
             {
                 db.Entry(store).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = store.ID});
             }
             return View(store);
         }

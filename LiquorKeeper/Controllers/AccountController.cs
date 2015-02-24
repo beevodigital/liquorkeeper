@@ -15,6 +15,8 @@ namespace LiquorKeeper.Controllers
     [Authorize]
     public class AccountController : Controller
     {
+        private ApplicationDbContext db = new ApplicationDbContext();
+
         public AccountController()
             : this(new UserManager<ApplicationUser>(new UserStore<ApplicationUser>(new ApplicationDbContext())))
         {
@@ -126,6 +128,14 @@ namespace LiquorKeeper.Controllers
                 : "";
             ViewBag.HasLocalPassword = HasPassword();
             ViewBag.ReturnUrl = Url.Action("Manage");
+
+            //above is OTB mvc stuff. Below is mine
+            var ThisUserId = User.Identity.GetUserId();
+            var ThisUser = db.Users.Where(x => x.Id.Equals(ThisUserId)).FirstOrDefault();
+
+            var GetStores = db.Stores.Where(x => x.User.Id.Equals(ThisUser.Id)).ToList();
+            ViewBag.MyStores = GetStores;
+
             return View();
         }
 

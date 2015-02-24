@@ -2,14 +2,70 @@
 @using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Manage Account";
+
+    List<Store> MyStores = (List<Store>)ViewBag.MyStores;
 }
 
-<h2>@ViewBag.Title.</h2>
+<!--Page Title-->
+<section id="page-title">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 title-white">
+                <h2>Account Management</h2>
+            </div>
+        </div>
+    </div>
+</section>
 
-@Html.Partial("_EditStore")
+<!--Portfolio Content-->
+<section id="content">
+    <div class="container">
 
-<p class="text-success">@ViewBag.StatusMessage</p>
-<div class="row">
+        <div class="row margin-20">
+            <div class="col-md-12">
+                <ul class="list-inline">
+                    <li>Select a Store</li>
+                    @*<li><a href="#" data-toggle="portfilter" data-target="graphics">Graphics</a></li>
+                    <li><a href="#" data-toggle="portfilter" data-target="web">Web</a></li>
+                    <li><a href="#" data-toggle="portfilter" data-target="videos">Videos</a></li>*@
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+
+            <ul class="list-inline portfolio text-center">
+                @foreach(var ThisStore in MyStores)
+                {
+                    <!--Project Thumbnail-->
+                    <li data-tag="graphics">
+                        <div class="thumbs">
+                            <img src="/public/img/portfolio1.jpg" class="img-responsive" alt="Image Size 430x280">
+                            <a href="@Url.Action("Details", "Store", new { id = ThisStore.ID })">
+                                <span class="title">
+                                    <span><i class="fa fa-link fa-2x"></i></span>
+                                </span>
+                            </a>
+                        </div>
+
+                        <div class="project-title margin-30">
+                            <h5>@ThisStore.Name</h5>
+                        </div>
+                    </li>
+                }
+                
+            </ul><!--End Work List-->
+        </div><!--End Row-->
+
+    </div>
+</section>
+
+    @*<h2>@ViewBag.Title.</h2>
+
+    @Html.Partial("_EditStore")
+
+    <p class="text-success">@ViewBag.StatusMessage</p>*@
+@*<div class="row">
     <div class="col-md-12">
         @if (ViewBag.HasLocalPassword)
         {
@@ -25,7 +81,7 @@
             @Html.Partial("_ExternalLoginsListPartial", new { Action = "LinkLogin", ReturnUrl = ViewBag.ReturnUrl })
         </section>
     </div>
-</div>
-@section Scripts {
+</div>*@
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@
